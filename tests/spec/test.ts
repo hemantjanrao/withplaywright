@@ -11,6 +11,5 @@ test.describe('Test suite', () => {
     await page.locator('input[name="q"]').press('Escape');
     await page.locator('input[name="q"]').press('Enter');
     expect(page.locator('[data-attrid="title"]'), 'test');
-    expect(page.locator('[data-attrid="title"]'), 'test');
   });
 });

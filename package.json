@@ -10,7 +10,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "prettier --config .prettierrc 'tests/**/*.ts' --write"
+      "pre-commit": "yarn run lint && yarn run format"
     }
   },
   "keywords": [],
