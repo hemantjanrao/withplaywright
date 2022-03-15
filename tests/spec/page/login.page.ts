@@ -7,7 +7,7 @@ export default class LoginPage extends BasePage {
   }
 
   public async gotoLogin() {
-    await this.getPage(this.context);
+    // await this.getPage(this.context);
     await this.page.locator('a.login').click();
   }
 
@@ -15,6 +15,8 @@ export default class LoginPage extends BasePage {
     await this.page.locator('#email').fill(username);
     await this.page.locator('#passwd').fill(password);
     await this.page.locator('#SubmitLogin').click();
+    await this.page.waitForNavigation();
+
   }
 
   public async isOn(): Promise<boolean> {

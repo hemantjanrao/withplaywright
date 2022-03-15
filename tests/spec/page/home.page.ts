@@ -14,5 +14,7 @@ export default class HomePage extends BasePage {
 
   public async gotoLogin() {
     this.page.locator('a.login').click();
+    await this.page.waitForNavigation();
+
   }
 }

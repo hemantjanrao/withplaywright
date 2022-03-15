@@ -6,6 +6,7 @@ export default class BasePage {
 
   constructor(context: BrowserContext) {
     this.context = context;
+    this.getPage(context);
   }
 
   protected async getPage(context: BrowserContext) {

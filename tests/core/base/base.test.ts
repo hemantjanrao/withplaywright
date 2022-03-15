@@ -15,4 +15,4 @@ test.beforeEach(async () => {
 
 test.afterEach(() => {
   page_context.close();
-  })
+})
