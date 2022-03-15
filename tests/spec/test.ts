@@ -17,10 +17,10 @@ test.describe('Test suite', async () => {
     expect(pag.locator('[data-attrid="title"]'), 'test');
   });
 
-  test('Second', async () => {
-    await homePage.openHomePage();
-    await homePage.gotoLogin();
-    await loginPage.login('hf_challenge_123456@hf123456.com', '12345678');
-    expect(await loginPage.isOn()).toBeTruthy();
-  });
+  // test('Second', async () => {
+  //   await homePage.openHomePage();
+  //   await homePage.gotoLogin();
+  //   await loginPage.login('hf_challenge_123456@hf123456.com', '12345678');
+  //   expect(await loginPage.isOn()).toBeTruthy();
+  // });
 });
