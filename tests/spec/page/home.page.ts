@@ -8,7 +8,8 @@ export default class HomePage extends BasePage {
 
   public async openHomePage() {
     await this.getPage(this.context);
-    this.page.goto('http://automationpractice.com/index.php');
+    this.page.goto('/');
+    return this.page;
   }
 
   public async gotoLogin() {

@@ -12,10 +12,10 @@ test.beforeEach(async () => {
 });
 
 test.describe('Test suite', async () => {
-  // test('First', async () =>{
-  //   const pag = await homePage.openHomePage();
-  //   expect(pag.locator('[data-attrid="title"]'), 'test');
-  // });
+  test('First', async () =>{
+    const pag = await homePage.openHomePage();
+    expect(pag.locator('[data-attrid="title"]'), 'test');
+  });
 
   test('Second', async () => {
     await homePage.openHomePage();
