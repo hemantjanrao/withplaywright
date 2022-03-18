@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: yarn
     - name: Install Playwright
-      run: npx playwright install --with-deps
+      run: npm install playwright@next --with-deps
     - name: Run Playwright tests
       run: yarn test
     - uses: actions/upload-artifact@v2
