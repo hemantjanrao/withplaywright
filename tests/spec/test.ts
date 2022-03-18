@@ -1,4 +1,4 @@
-import { test, expect, Page } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import * as ts from '../core/base/base.test';
 import HomePage from './page/home.page';
 import LoginPage from './page/login.page';
@@ -12,16 +12,10 @@ test.beforeEach(async () => {
 });
 
 test.describe('Test suite', async () => {
-  // test('First', async () =>{
-  //   const pag = await homePage.openHomePage();
-  //   expect(pag.locator('[data-attrid="title"]'), 'test');
-  // });
-
-  test('Second', async () => {
+  test('First', async () => {
     await homePage.openHomePage();
     await homePage.gotoLogin();
     await loginPage.login('hf_challenge_123456@hf123456.com', '12345678');
     expect(await loginPage.isOn()).toBeTruthy();
-    console.log('STATUS finished');
   });
 });

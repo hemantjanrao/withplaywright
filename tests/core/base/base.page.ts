@@ -8,12 +8,16 @@ export default class BasePage {
   }
 
   protected async click(element: Locator) {
-    console.log(`Clicking on `);
-    element.click();
+    if (await element.isEnabled()) {
+      console.log(`Clicking on ${element} `);
+      element.click();
+    } else console.log(`Element ${element} is not enabled`);
   }
 
   protected async enter(element: Locator, text: string) {
-    console.log(`Filling on `);
-    element.fill(text);
+    if (await element.isEnabled()) {
+      console.log(`Filling on ${element} `);
+      element.fill(text);
+    } else console.log(`Element ${element} is not enabled`);
   }
 }
