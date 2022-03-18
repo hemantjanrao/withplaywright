@@ -1,18 +1,19 @@
 import {
   test,
-  Browser,
   chromium,
-  Page,
-  BrowserContext
+  BrowserContext,
+  Page
 } from '@playwright/test';
 
 export let page_context: BrowserContext;
+export let page:Page;
 
 test.beforeEach(async () => {
   const browser = await chromium.launch({ headless: false });
-  page_context = await browser.newContext();
+  const page_context = await browser.newContext();
+  page = await page_context.newPage();
 });
 
 test.afterEach(() => {
-  page_context.close();
+  page.close();
 })

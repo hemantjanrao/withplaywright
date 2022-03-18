@@ -1,22 +1,16 @@
-import { BrowserContext } from '@playwright/test';
+import { BrowserContext, Page } from '@playwright/test';
 import BasePage from '../../core/base/base.page';
 
 export default class LoginPage extends BasePage {
-  constructor(context: BrowserContext) {
-    super(context);
+  constructor(page: Page) {
+    super(page);
   }
 
-  public async gotoLogin() {
-    // await this.getPage(this.context);
-    await this.page.locator('a.login').click();
-  }
-
-  public async login(username, password) {
+  public async login(username, password):Promise<void> {
     await this.page.locator('#email').fill(username);
     await this.page.locator('#passwd').fill(password);
     await this.page.locator('#SubmitLogin').click();
     await this.page.waitForNavigation();
-
   }
 
   public async isOn(): Promise<boolean> {
