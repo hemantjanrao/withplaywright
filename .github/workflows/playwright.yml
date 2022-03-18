@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: mcr.microsoft.com/playwright
+    runs-on: playwright:v1.20.0-focal
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
