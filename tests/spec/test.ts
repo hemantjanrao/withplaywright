@@ -22,6 +22,6 @@ test.describe('Test suite', async () => {
     await homePage.gotoLogin();
     await loginPage.login('hf_challenge_123456@hf123456.com', '12345678');
     expect(await loginPage.isOn()).toBeTruthy();
-    console.log("STATUS finished");
+    console.log('STATUS finished');
   });
 });

@@ -1,4 +1,4 @@
-import { BrowserContext, Locator, Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export default class BasePage {
   protected page!: Page;
@@ -7,12 +7,12 @@ export default class BasePage {
     this.page = page;
   }
 
-  protected async click(element:Locator){
+  protected async click(element: Locator) {
     console.log(`Clicking on `);
     element.click();
   }
 
-  protected async enter(element: Locator, text:string){
+  protected async enter(element: Locator, text: string) {
     console.log(`Filling on `);
     element.fill(text);
   }

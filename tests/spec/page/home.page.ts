@@ -2,7 +2,6 @@ import { BrowserContext, Page } from '@playwright/test';
 import BasePage from '../../core/base/base.page';
 
 export default class HomePage extends BasePage {
-
   constructor(page: Page) {
     super(page);
   }

@@ -6,7 +6,7 @@ export default class LoginPage extends BasePage {
     super(page);
   }
 
-  public async login(username, password):Promise<void> {
+  public async login(username, password): Promise<void> {
     await this.enter(this.page.locator('#email'), username);
     await this.enter(this.page.locator('#passwd'), password);
     await this.click(this.page.locator('#SubmitLogin'));
