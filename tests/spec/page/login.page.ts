@@ -7,9 +7,9 @@ export default class LoginPage extends BasePage {
   }
 
   public async login(username, password):Promise<void> {
-    await this.page.locator('#email').fill(username);
-    await this.page.locator('#passwd').fill(password);
-    await this.page.locator('#SubmitLogin').click();
+    await this.enter(this.page.locator('#email'), username);
+    await this.enter(this.page.locator('#passwd'), password);
+    await this.click(this.page.locator('#SubmitLogin'));
     await this.page.waitForNavigation();
   }
 

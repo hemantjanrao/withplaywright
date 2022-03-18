@@ -9,11 +9,9 @@ export default class HomePage extends BasePage {
 
   public async openHomePage() {
     await this.page.goto('/');
-    // await this.page.waitForNavigation();
   }
 
   public async gotoLogin() {
-    await this.page.locator('a.login').click();
-    // await this.page.waitForNavigation();
+    await this.click(this.page.locator('a.login'));
   }
 }
