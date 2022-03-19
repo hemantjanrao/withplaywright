@@ -9,11 +9,11 @@ export default class HomePage extends BasePage {
   // Page locators
   linkLogin = () => this.page.locator('a.login');
 
-  public async openHomePage() {
+  public async openHomePage(): Promise<void> {
     await this.page.goto('/');
   }
 
-  public async gotoLogin() {
+  public async gotoLogin(): Promise<void> {
     await this.click(this.linkLogin());
   }
 }
