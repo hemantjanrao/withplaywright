@@ -7,7 +7,7 @@ export default class BasePage {
     this.page = page;
   }
 
-  protected async click(element: Locator) {
+  protected async click(element: Locator): Promise<void> {
     try {
       if (await element.isEnabled()) element?.click();
     } catch (e) {
@@ -18,7 +18,7 @@ export default class BasePage {
     }
   }
 
-  protected async enter(element: Locator, text: string) {
+  protected async enter(element: Locator, text: string): Promise<void> {
     try {
       if (await element.isEnabled()) element?.type(text);
     } catch (e) {
