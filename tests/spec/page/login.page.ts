@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import BasePage from '../../core/base/base.page';
 
 export default class LoginPage extends BasePage {
@@ -7,10 +7,10 @@ export default class LoginPage extends BasePage {
   }
 
   // Page locators
-  inputEmail = () => this.page.locator('#email');
-  inputPassword = () => this.page.locator('#passwd');
-  buttonSubmit = () => this.page.locator('#SubmitLogin');
-  linkHome = () => this.page.locator('a.home');
+  inputEmail = (): Locator => this.page.locator('#email');
+  inputPassword = (): Locator => this.page.locator('#passwd');
+  buttonSubmit = (): Locator => this.page.locator('#SubmitLogin');
+  linkHome = (): Locator => this.page.locator('a.home');
 
   /**
    * Login to the application
