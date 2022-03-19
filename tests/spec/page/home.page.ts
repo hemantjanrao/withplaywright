@@ -6,11 +6,14 @@ export default class HomePage extends BasePage {
     super(page);
   }
 
+  // Page locators
+  linkLogin = () => this.page.locator('a.login');
+
   public async openHomePage() {
     await this.page.goto('/');
   }
 
   public async gotoLogin() {
-    await this.click(this.page.locator('a.login'));
+    await this.click(this.linkLogin());
   }
 }

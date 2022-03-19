@@ -12,6 +12,12 @@ export default class LoginPage extends BasePage {
   buttonSubmit = () => this.page.locator('#SubmitLogin');
   linkHome = () => this.page.locator('a.home');
 
+  /**
+   * Login to the application
+   * @param  {string} username
+   * @param  {string} password
+   * @returns Promise
+   */
   public async login(username: string, password: string): Promise<void> {
     await this.enter(this.inputEmail(), username);
     await this.enter(this.inputPassword(), password);
@@ -19,6 +25,10 @@ export default class LoginPage extends BasePage {
     await this.page.waitForNavigation();
   }
 
+  /**
+   * Verify is the user on the
+   * @returns Promise
+   */
   public async isOn(): Promise<boolean> {
     return await this.linkHome().isVisible();
   }
