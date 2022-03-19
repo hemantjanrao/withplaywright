@@ -41,10 +41,12 @@ test.beforeEach(async ({ browserName }) => {
   }
 
   page_context = await browser.newContext();
+  await page_context.tracing.start({ screenshots: true, snapshots: true });
   page = await page_context.newPage();
 });
 
-test.afterEach(() => {
+test.afterEach(async () => {
+  await page_context.tracing.stop({ path: 'trace.zip' });
   page.close();
   page_context.close();
   browser.close();
