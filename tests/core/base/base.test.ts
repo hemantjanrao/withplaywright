@@ -14,21 +14,27 @@ export let browser: Browser;
 
 test.describe.configure({ mode: 'parallel' });
 
+enum Browsers {
+  CHROMIUM = 'chromium',
+  FIREFOX = 'firefox',
+  WEBKIT = 'webkit'
+}
+
 test.beforeEach(async ({ browserName }) => {
   switch (browserName) {
-    case 'chromium': {
+    case Browsers.CHROMIUM: {
       browser = await chromium.launch({
         headless: false
       });
       break;
     }
-    case 'firefox': {
+    case Browsers.FIREFOX: {
       browser = await firefox.launch({
         headless: false
       });
       break;
     }
-    case 'webkit': {
+    case Browsers.WEBKIT: {
       browser = await webkit.launch({
         headless: false
       });
