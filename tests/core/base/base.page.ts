@@ -8,16 +8,24 @@ export default class BasePage {
   }
 
   protected async click(element: Locator) {
-    if (await element.isEnabled()) {
-      console.log(`Clicking on ${element} `);
-      element?.click();
-    } else console.log(`Element ${element} is not enabled`);
+    try {
+      if (await element.isEnabled()) element?.click();
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(
+        `Element ${element} is not enabled => ${(e as Error).message}`
+      );
+    }
   }
 
   protected async enter(element: Locator, text: string) {
-    if (await element.isEnabled()) {
-      console.log(`Filling on ${element} `);
-      element.type(text);
-    } else console.log(`Element ${element} is not enabled`);
+    try {
+      if (await element.isEnabled()) element?.type(text);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(
+        `Element ${element} is not enabled => ${(e as Error).message}`
+      );
+    }
   }
 }
