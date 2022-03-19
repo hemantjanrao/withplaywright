@@ -17,7 +17,7 @@ export default class BasePage {
   protected async enter(element: Locator, text: string) {
     if (await element.isEnabled()) {
       console.log(`Filling on ${element} `);
-      element.fill(text);
+      element.type(text);
     } else console.log(`Element ${element} is not enabled`);
   }
 }
