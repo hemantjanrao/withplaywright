@@ -10,7 +10,7 @@ export default class LoginPage extends BasePage {
   inputEmail = (): Locator => this.page.locator('#email');
   inputPassword = (): Locator => this.page.locator('#passwd');
   buttonSubmit = (): Locator => this.page.locator('#SubmitLogin');
-  linkHome = (): Locator => this.page.locator('a.home');
+  home = (): Locator => this.page.locator('#center_column');
 
   /**
    * Login to the application
@@ -30,6 +30,6 @@ export default class LoginPage extends BasePage {
    * @returns Promise
    */
   public async isOn(): Promise<boolean> {
-    return await this.linkHome().isVisible();
+    return await this.home().isVisible();
   }
 }

@@ -15,5 +15,6 @@ export default class HomePage extends BasePage {
 
   public async gotoLogin(): Promise<void> {
     await this.click(this.linkLogin());
+    await this.page.waitForNavigation();
   }
 }

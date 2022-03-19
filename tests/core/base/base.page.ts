@@ -20,7 +20,7 @@ export default class BasePage {
 
   protected async enter(element: Locator, text: string): Promise<void> {
     try {
-      if (await element.isEnabled()) element?.type(text);
+      if (await element.isEnabled()) element?.fill(text);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log(
