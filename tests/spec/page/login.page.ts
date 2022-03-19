@@ -1,4 +1,4 @@
-import { BrowserContext, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import BasePage from '../../core/base/base.page';
 
 export default class LoginPage extends BasePage {
@@ -6,14 +6,20 @@ export default class LoginPage extends BasePage {
     super(page);
   }
 
-  public async login(username, password): Promise<void> {
-    await this.enter(this.page.locator('#email'), username);
-    await this.enter(this.page.locator('#passwd'), password);
-    await this.click(this.page.locator('#SubmitLogin'));
+  // Page locators
+  inputEmail = () => this.page.locator('#email');
+  inputPassword = () => this.page.locator('#passwd');
+  buttonSubmit = () => this.page.locator('#SubmitLogin');
+  linkHome = () => this.page.locator('a.home');
+
+  public async login(username: string, password: string): Promise<void> {
+    await this.enter(this.inputEmail(), username);
+    await this.enter(this.inputPassword(), password);
+    await this.click(this.buttonSubmit());
     await this.page.waitForNavigation();
   }
 
   public async isOn(): Promise<boolean> {
-    return await this.page.locator('a.home').isVisible();
+    return await this.linkHome().isVisible();
   }
 }

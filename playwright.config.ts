@@ -37,10 +37,15 @@ const config: PlaywrightTestConfig = {
     baseURL: process.env.ENVMENT || 'http://automationpractice.com/index.php',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry'
+    trace: 'on-first-retry',
+
+    headless: false,
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
+    video: 'on'
   },
 
-  /* Configure projects for major browsers */
+  // /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
@@ -90,10 +95,10 @@ const config: PlaywrightTestConfig = {
     //     channel: 'chrome',
     //   },
     // },
-  ]
+  ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
+  outputDir: './test-results/'
 
   /* Run your local dev server before starting the tests */
   // webServer: {

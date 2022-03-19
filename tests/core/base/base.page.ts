@@ -10,7 +10,7 @@ export default class BasePage {
   protected async click(element: Locator) {
     if (await element.isEnabled()) {
       console.log(`Clicking on ${element} `);
-      element.click();
+      element?.click();
     } else console.log(`Element ${element} is not enabled`);
   }
 
