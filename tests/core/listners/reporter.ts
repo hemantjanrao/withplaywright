@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Reporter } from '@playwright/test/reporter';
 
 class MyReporter implements Reporter {
