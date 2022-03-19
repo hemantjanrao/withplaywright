@@ -7,7 +7,7 @@
     "prepare": "husky install",
     "lint": "eslint . --ext .ts",
     "format": "prettier --config .prettierrc 'tests/**/*.ts' --write",
-    "test": "npx playwright test --reporter=line,allure-playwright"
+    "test": "npx playwright test --reporter=line,allure-playwright --workers 4"
   },
   "husky": {
     "hooks": {

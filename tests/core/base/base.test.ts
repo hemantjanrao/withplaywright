@@ -12,6 +12,8 @@ export let page_context: BrowserContext;
 export let page: Page;
 export let browser: Browser;
 
+test.describe.configure({ mode: 'parallel' });
+
 test.beforeEach(async ({ browserName }) => {
   switch (browserName) {
     case 'chromium': {
