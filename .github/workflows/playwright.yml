@@ -5,23 +5,52 @@ on:
   pull_request:
     branches: [ main, master ]
 jobs:
-  test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
+  # test:
+  #   timeout-minutes: 60
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - uses: actions/setup-node@v2
+  #     with:
+  #       node-version: '14.x'
+  #   - name: Install dependencies
+  #     run: yarn
+  #   - name: Install Playwright
+  #     run: npx playwright install --with-deps && npx playwright install 
+  #   - name: Run Playwright tests
+  #     run: xvfb-run --auto-servernum -- yarn test
+  #   - uses: actions/upload-artifact@v2
+  #     if: always()
+  #     with:
+  #       name: playwright-report
+  #       path: playwright-report/
+  #       retention-days: 30
+
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: [tests]
+        platform: [ubuntu-latest, windows-latest]
+        node: ['14.x']
+    runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: microsoft/playwright-github-action@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v2
       with:
-        node-version: '14.x'
-    - name: Install dependencies
-      run: yarn
-    - name: Install Playwright
-      run: npx playwright install --with-deps && npx playwright install 
-    - name: Run Playwright tests
-      run: xvfb-run --auto-servernum -- yarn test
-    - uses: actions/upload-artifact@v2
-      if: always()
+        node-version: ${{ matrix.node }}
+    - run: yarn
+      working-directory: ${{ matrix.dir }}
+    - run: yarn test
+      working-directory: ${{ matrix.dir }}
+      env:
+        SKIP_PREFLIGHT_CHECK: "true"
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      if: ${{ matrix.dir == 'create-react-app-coverage' }}
       with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: create-react-app-coverage/coverage/lcov.info
+        base-path: ${{ matrix.dir }}      
