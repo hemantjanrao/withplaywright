@@ -24,19 +24,19 @@ test.beforeEach(async ({ browserName }) => {
   switch (browserName) {
     case Browsers.CHROMIUM: {
       browser = await chromium.launch({
-        headless: false
+        headless: true
       });
       break;
     }
     case Browsers.FIREFOX: {
       browser = await firefox.launch({
-        headless: false
+        headless: true
       });
       break;
     }
     case Browsers.WEBKIT: {
       browser = await webkit.launch({
-        headless: false
+        headless: true
       });
       break;
     }
