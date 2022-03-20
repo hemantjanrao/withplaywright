@@ -43,7 +43,9 @@ jobs:
         node-version: ${{ matrix.node }}
     - run: yarn
       working-directory: ${{ matrix.dir }}
-    - run: yarn test
+    - run: npx playwright install 
+      working-directory: ${{ matrix.dir }}  
+    - run: xvfb-run --auto-servernum -- yarn test
       working-directory: ${{ matrix.dir }}
       env:
         SKIP_PREFLIGHT_CHECK: "true"
