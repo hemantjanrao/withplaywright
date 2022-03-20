@@ -4,11 +4,8 @@
 A small framework for running tests on web app and run tests on Jenkins and github acitons
 
 
-
-
 ## Badges
-
-Add badges from somewhere like: [shields.io](https://shields.io/)
+[![Playwright Tests](https://github.com/hemantjanrao/withplaywright/actions/workflows/playwright.yml/badge.svg)](https://github.com/hemantjanrao/withplaywright/actions/workflows/playwright.yml)
 
 ## Installation
 
