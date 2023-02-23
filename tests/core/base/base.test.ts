@@ -53,7 +53,7 @@ test.beforeEach(async ({ browserName }) => {
 
 test.afterEach(async () => {
   await page_context.tracing.stop({ path: 'trace.zip' });
-  page.close();
-  page_context.close();
-  browser.close();
+  await page.close();
+  await page_context.close();
+  await browser.close();
 });

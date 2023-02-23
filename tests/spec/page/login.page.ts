@@ -7,10 +7,9 @@ export default class LoginPage extends BasePage {
   }
 
   // Page locators
-  inputEmail = (): Locator => this.page.locator('#email');
-  inputPassword = (): Locator => this.page.locator('#passwd');
-  buttonSubmit = (): Locator => this.page.locator('#SubmitLogin');
-  home = (): Locator => this.page.locator('#center_column');
+  inputEmail = (): Locator => this.page.locator('#user-name');
+  inputPassword = (): Locator => this.page.locator('#password');
+  buttonSubmit = (): Locator => this.page.locator('#login-button');
 
   /**
    * Login to the application
@@ -19,10 +18,13 @@ export default class LoginPage extends BasePage {
    * @returns Promise
    */
   public async login(username: string, password: string): Promise<void> {
-    await this.enter(this.inputEmail(), username);
-    await this.enter(this.inputPassword(), password);
-    await this.click(this.buttonSubmit());
-    await this.page.waitForNavigation();
+    await this.inputEmail().fill(username);
+    await this.inputPassword().fill(password);
+    await this.buttonSubmit().click();
+  }
+
+  public async open(): Promise<void> {
+    this.page.goto('/');
   }
 
   /**
@@ -30,6 +32,6 @@ export default class LoginPage extends BasePage {
    * @returns Promise
    */
   public async isOn(): Promise<boolean> {
-    return await this.home().isVisible();
+    return await this.buttonSubmit().isVisible();
   }
 }
