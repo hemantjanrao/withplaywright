@@ -11,7 +11,6 @@ test.beforeEach(async () => {
 
 test.describe('Test suite', async () => {
   test('First', async () => {
-    // await loginPage.open();
     await loginPage.login('standard_user', 'secret_sauce');
     expect(ts.page.locator('select')).toHaveClass('product_sort_container');
   });
