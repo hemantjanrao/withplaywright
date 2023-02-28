@@ -18,6 +18,8 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 18
+    - name: Install dependencies
+      run: npm ci    
     - run: yarn
       working-directory: ${{ matrix.dir }}
     - run: npx playwright install 
