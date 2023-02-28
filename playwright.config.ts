@@ -30,10 +30,7 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['./tests/core/listners/reporter.ts'], 
-    ['allure-playwright',{
-      detail: true,
-      outputFolder: './allure-results',
-      suiteTitle: false,}],
+    ['html', { open: 'never' }],
     ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -104,7 +101,7 @@ const config: PlaywrightTestConfig = {
     // },
   ],
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: './allure-results/'
+  outputDir: './playwright-report/'
 
   /* Run your local dev server before starting the tests */
   // webServer: {
