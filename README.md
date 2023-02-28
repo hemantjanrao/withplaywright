@@ -7,6 +7,9 @@ A small framework for running tests on web app and run tests on Jenkins and gith
 ## Badges
 [![Playwright Tests](https://github.com/hemantjanrao/withplaywright/actions/workflows/playwright.yml/badge.svg)](https://github.com/hemantjanrao/withplaywright/actions/workflows/playwright.yml)
 
+## Allure report
+https://hemantjanrao.github.io/withplaywright/
+
 ## Installation
 
 Install my-project with npm
