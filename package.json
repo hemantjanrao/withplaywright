@@ -28,6 +28,7 @@
     "eslint-config-prettier": "^8.5.0",
     "@types/jest": "^27.4.1",
     "allure-playwright": "2.0.0",
+    "allure-commandline": "^2.17.2",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-prettier": "^4.0.0"
   }
