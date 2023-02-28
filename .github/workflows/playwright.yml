@@ -14,12 +14,10 @@ jobs:
         node: ['14.x']
     runs-on: ${{ matrix.platform }}
     steps:
-    - uses: actions/checkout@v2
-    - uses: microsoft/playwright-github-action@v1
-    - name: Use Node.js
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node }}
+        node-version: 18
     - run: yarn
       working-directory: ${{ matrix.dir }}
     - run: npx playwright install 
