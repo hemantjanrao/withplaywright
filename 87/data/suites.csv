@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Feb 28 22:15:34 GMT 2023","Tue Feb 28 22:15:39 GMT 2023","4750","chromium","spec/test.ts","Test suite","","","First",""
+"failed","Tue Feb 28 22:15:40 GMT 2023","Tue Feb 28 22:15:42 GMT 2023","1656","webkit","spec/test.ts","Test suite","","","First",""
+"passed","Tue Feb 28 22:15:34 GMT 2023","Tue Feb 28 22:15:43 GMT 2023","9342","firefox","spec/test.ts","Test suite","","","First",""
