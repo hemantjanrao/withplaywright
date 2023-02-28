@@ -20,7 +20,7 @@ export default class LoginPage extends BasePage {
    * @returns Promise<void>
    */
   public async login(username: string, password: string): Promise<void> {
-    this.page.goto("/");
+    this.page.goto('/');
     await this.inputEmail.fill(username);
     await this.inputPassword.fill(password);
     await this.buttonSubmit.click();
