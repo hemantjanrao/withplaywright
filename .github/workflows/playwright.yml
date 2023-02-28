@@ -23,5 +23,5 @@ jobs:
         if: always()
         with:
           name: test-report
-          path: allure-results/
+          path: my-allure-results/
           retention-days: 30
