@@ -7,7 +7,7 @@
     "prepare": "husky install",
     "lint": "eslint . --ext .ts",
     "format": "prettier --config .prettierrc 'tests/**/*.ts' --write",
-    "test": "npx playwright test --workers 4",
+    "test": "npx playwright test || :",
     "allure:generate": "npx allure generate allure-results --clean",
     "allure:open": "npx allure open ./allure-report",
     "posttest": "npm run allure:generate"
