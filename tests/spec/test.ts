@@ -14,4 +14,9 @@ test.describe('Test suite', async () => {
     await loginPage.login('standard_user', 'secret_sauce');
     expect(ts.page.locator('select')).toHaveClass('product_sort_container');
   });
+
+  test('Second', async () => {
+    await loginPage.login('standard_user', 'secret_sauce');
+    expect(ts.page.locator('select')).toHaveClass('product_sort_container');
+  });
 });
