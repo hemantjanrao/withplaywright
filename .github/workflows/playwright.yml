@@ -11,7 +11,7 @@ jobs:
       matrix:
         dir: [tests]
         platform: [ubuntu-latest]
-        node: ['14.x']
+        node: ['18.x']
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v2
