@@ -28,7 +28,7 @@ jobs:
       working-directory: ${{ matrix.dir }}
       env:
         SKIP_PREFLIGHT_CHECK: "true"
-      uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: playwright-report
