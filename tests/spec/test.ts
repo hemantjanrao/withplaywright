@@ -9,25 +9,18 @@ test.beforeEach(async () => {
   loginPage = new LoginPage(page);
 });
 
-test.describe('Authenticaiton using UI', async () => {
-  test('First', async () => {
+test.describe('Authentication', async () => {
+  test('Authenticaiton using UI', async () => {
     await loginPage.login('h-janrao', '@Test1234');
     await expect(page.locator('li.home')).toBeVisible();
   });
 
   test('Authentication using API and then continue UI test', async () => {
-    const formData = new URLSearchParams();
-    formData.append('username', 'h-janrao');
-    formData.append('password', '@Test1234');
-
     let response = await page.request.post('/parabank/login.htm', {
-    ignoreHTTPSErrors: true,
-    headers:{
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data: formData.toString(),
-    maxRedirects: 1
-    });
+    form:{
+      username:"h-janrao",
+      password:"@Test1234"
+    }});
     
     expect(response.status()).toBe(200);
 
