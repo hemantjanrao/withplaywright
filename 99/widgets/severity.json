@@ -1,0 +1,1 @@
+[{"uid":"8b61717c6685d8ab","name":"Authenticaiton using UI","time":{"start":1678050715393,"stop":1678050717789,"duration":2396},"status":"passed","severity":"normal"},{"uid":"8fb121ffcdcaac43","name":"Authentication using API and then continue UI test","time":{"start":1678050717789,"stop":1678050719165,"duration":1376},"status":"passed","severity":"normal"}]

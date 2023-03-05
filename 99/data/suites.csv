@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Mar 05 21:11:57 GMT 2023","Sun Mar 05 21:11:59 GMT 2023","1376","chromium","spec/test.ts","Authentication","","","Authentication using API and then continue UI test",""
+"passed","Sun Mar 05 21:11:55 GMT 2023","Sun Mar 05 21:11:57 GMT 2023","2396","chromium","spec/test.ts","Authentication","","","Authenticaiton using UI",""
