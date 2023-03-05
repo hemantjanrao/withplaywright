@@ -8,9 +8,9 @@ export default class LoginPage extends BasePage {
 
   constructor(page: Page) {
     super(page);
-    this.inputEmail = this.page.locator('#user-name');
-    this.inputPassword = this.page.locator('#password');
-    this.buttonSubmit = this.page.locator('#login-button');
+    this.inputEmail = this.page.locator('input[name="username"]')
+    this.inputPassword = this.page.locator('input[name="password"]');
+    this.buttonSubmit = this.page.locator('input[value="Log In"]');
   }
 
   /**
@@ -20,7 +20,7 @@ export default class LoginPage extends BasePage {
    * @returns Promise<void>
    */
   public async login(username: string, password: string): Promise<void> {
-    this.page.goto('/');
+    await this.page.goto('/');
     await this.inputEmail.fill(username);
     await this.inputPassword.fill(password);
     await this.buttonSubmit.click();

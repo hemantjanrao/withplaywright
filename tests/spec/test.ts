@@ -1,22 +1,38 @@
 /* eslint-disable no-console */
-import { test, expect, request } from '@playwright/test';
-import * as ts from '../core/base/base.test';
+import { test, expect, request} from '@playwright/test';
+import { page, page_context } from '../core/base/base.test';
 import LoginPage from './page/login.page';
 
 export let loginPage: LoginPage;
 
 test.beforeEach(async () => {
-  loginPage = new LoginPage(ts.page);
+  loginPage = new LoginPage(page);
 });
 
-test.describe('Test suite', async () => {
+test.describe('Authenticaiton using UI', async () => {
   test('First', async () => {
-    await loginPage.login('standard_user', 'secret_sauce');
-    expect(ts.page.locator('select')).toHaveClass('product_sort_container');
+    await loginPage.login('h-janrao', '@Test1234');
+    await expect(page.locator('li.home')).toBeVisible();
   });
 
-  test('Second', async () => {
-    await loginPage.login('standard_user', 'secret_sauce');
-    expect(ts.page.locator('select')).toHaveClass('product_sort_container');
+  test('Authentication using API and then continue UI test', async () => {
+    const formData = new URLSearchParams();
+    formData.append('username', 'h-janrao');
+    formData.append('password', '@Test1234');
+
+    let response = await page.request.post('/parabank/login.htm', {
+    ignoreHTTPSErrors: true,
+    headers:{
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    data: formData.toString(),
+    maxRedirects: 1
+    });
+    
+    expect(response.status()).toBe(200);
+
+    await page.goto("/");
+    await expect(page.locator('li.home')).toBeVisible();
   });
+
 });
