@@ -22,7 +22,6 @@ test.describe('Authentication', async () => {
         password: '@Test1234'
       }
     });
-
     expect(response.status()).toBe(200);
 
     await page.goto('/');
